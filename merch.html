@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch - Emails I Never Sent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo">
+                <img src="logo.jpg" alt="Emails I Never Sent Logo">
+                <div class="logo-text">Emails I Never Sent</div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="merch.html">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="merchandise-heading">Merchandise</h1> <!-- Updated heading -->
+    <main>
+        <section class="merch-items">
+            <div class="item">
+                <img src="merch images/hoodie.jpg" alt="Hoodie">
+                <h3>Hoodie</h3>
+                <p>$39.99</p>
+                <button onclick="addToCart('Hoodie', 39.99)">Add to Cart</button>
+            </div>
+            <div class="item">
+                <img src="merch images/tshirt.jpg" alt="T-Shirt">
+                <h3>T-Shirt</h3>
+                <p>$24.99</p>
+                <button onclick="addToCart('T-Shirt', 24.99)">Add to Cart</button>
+            </div>
+            <div class="item">
+                <img src="merch images/hat.jpg" alt="Hat">
+                <h3>Hat</h3>
+                <p>$19.99</p>
+                <button onclick="addToCart('Hat', 19.99)">Add to Cart</button>
+            </div>
+        </section>
+        <section class="cart">
+            <h2>Cart</h2>
+            <div id="cart-items"></div>
+            <div id="total"></div>
+            <button id="checkout-btn">Checkout</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Emails I Never Sent</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

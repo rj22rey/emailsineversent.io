@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Emails I Never Sent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/logo.jpg" alt="Emails I Never Sent Logo">
+            <div class="logo-text">Emails I Never Sent</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="messages">
+            <h1>Messages</h1>
+            <div class="message-board">
+                <!-- Row 1 -->
+                <div class="message sticky-note fade-in">
+                    <p>To Alice: I refuse to let your darkness consume me.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Bob: Your actions do not define my worth.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Charlie: I am deserving of love and respect.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To David: I embrace my journey towards healing and self-discovery.</p>
+                </div>
+                <!-- Row 2 -->
+                <div class="message sticky-note fade-in">
+                    <p>To Emma: I choose to focus on the present moment and let go of the past.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Frank: I am resilient and capable of overcoming any challenge.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Grace: I trust in my ability to create a bright and fulfilling future.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Henry: I celebrate my progress and honor my journey towards healing.</p>
+                </div>
+                <!-- Row 3 -->
+                <div class="message sticky-note fade-in">
+                    <p>To Isabelle: You may have hurt me, but you cannot break me.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Jack: I find strength in my vulnerability and authenticity.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Kate: I am worthy of happiness and inner peace.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Liam: Each day brings new opportunities for growth and healing.</p>
+                </div>
+                <!-- Row 4 -->
+                <div class="message sticky-note fade-in">
+                    <p>To Mia: I am surrounded by supportive and caring individuals.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Noah: No more silence, no more fear.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>To Olivia: I am a survivor, not a victim.</p>
+                </div>
+                <div class="message sticky-note fade-in">
+                    <p>Dear Peter, My healing begins with releasing you from my thoughts.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Emails I Never Sent</p>
+    </footer>
+    <script>
+        window.onload = function() {
+            var messages = document.querySelectorAll('.message');
+
+            messages.forEach(function(message) {
+                var randomTexture = Math.floor(Math.random() * 5) + 1; // Generate random number between 1 and 5
+                if (randomTexture === 1) {
+                    message.style.backgroundImage = `url('sticky note images/sticky_note_texture.png')`; // Set background image
+                } else {
+                    message.style.backgroundImage = `url('sticky note images/sticky_note_texture${randomTexture}.png')`; // Set background image
+                }
+            });
+        }
+    </script>
+</body>
+</html>

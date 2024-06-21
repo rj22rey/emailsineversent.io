@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emails I Never Sent</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loading-spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Override colors to use CSS variables */
+        body {
+            color: var(--color-text);
+        }
+
+        header, footer, .contact-form, .testimonials, .hero, .intro-section {
+            color: var(--color-text);
+        }
+
+        .logo-text, nav ul li a, .hero h1, .hero p, .intro-section h2, .intro-section p, .contact-form h2, .contact-form label, .contact-form input, .contact-form textarea, .testimonials h2, .testimonial blockquote, .testimonial span, footer p {
+            color: var(--color-text);
+        }
+
+        .contact-form button, .testimonial blockquote {
+            background-color: var(--color-green);
+            color: var(--color-light-text);
+        }
+
+        .contact-form button:hover {
+            background-color: var(--color-dark-green);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Emails I Never Sent Logo">
+            <div class="logo-text">Emails I Never Sent</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/messages.html">Messages</a></li>
+                <li><a href="/about_us.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" role="banner">
+            <h1>Emails I Never Sent</h1>
+            <p>A platform for victims of sexual abuse and violence to express their unsent messages.</p>
+        </section>
+        <section class="intro-section">
+            <div class="container">
+                <h2>Express Your Unsent Message</h2>
+                <p>Input a message you wish you could have said. Your message will be posted anonymously to give voice to your experiences and help others understand they are not alone.</p>
+            </div>
+        </section>        
+        <section class="contact-form">
+            <h2>Tell Your Story Here</h2>
+            <form id="messageForm">
+                <label for="to">To</label>
+                <input type="text" id="to" name="to" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+                <div class="loading-spinner" id="loadingSpinner"></div>
+            </form>
+        </section>
+        <section class="testimonials">
+            <h2>We Create Change</h2>
+            <div class="testimonial">
+                <img src="testimonial images/testimonial 1.jpg" alt="Testimonial 1">
+                <blockquote>
+                    "This platform has given me a voice and a way to release my pain. Thank you!"
+                    <span>- Alice</span>
+                </blockquote>
+            </div>
+            <div class="testimonial">
+                <img src="testimonial images/testimonial 2.jpg" alt="Testimonial 2">
+                <blockquote>
+                    "Finally, a safe space to share my thoughts without fear of judgment."
+                    <span>- John</span>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Emails I Never Sent</p>
+    </footer>
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const to = document.getElementById('to').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!to || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            const newMessage = { to, message };
+            const spinner = document.getElementById('loadingSpinner');
+            spinner.style.display = 'inline-block';
+            
+            fetch('/save-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newMessage),
+            })
+            .then(response => response.json())
+            .then(data => {
+                spinner.style.display = 'none';
+                console.log('Success:', data);
+                window.location.href = '/thank-you.html';
+            })
+            .catch((error) => {
+                spinner.style.display = 'none';
+                console.error('Error:', error);
+                alert('An error occurred while submitting your message.');
+            });
+        });
+    </script>
+</body>
+</html>
